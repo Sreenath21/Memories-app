@@ -1,18 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+// import { createRoot } from "react-dom/client";
+// import { Provider } from "react-redux";
+// import { createStore, applyMiddleware, compose } from "redux";
+// import thunk from "redux-thunk";
 
-import { reducers } from './reducers';
-import App from './App';
-import './index.css';
+// import App from "./App";
+// import reducers from "./reducers";
+// import "./index.css";
 
-const store = createStore(reducers, compose(applyMiddleware(thunk)));
+// import { configureStore } from "@reduxjs/toolkit";
+// import posts from "./reducers/posts";
 
-ReactDOM.render(
+// const container = document.getElementById("root");
+// const root = createRoot(container);
+
+// const store = configureStore({ reducer: { posts } });
+
+// // const store = createStore(reducers, compose(applyMiddleware(thunk)));
+
+// root.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>
+// );
+
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+
+import posts from "./reducers/posts";
+import App from "./App";
+import "./index.css";
+
+const container = document.getElementById("root");
+const root = createRoot(container);
+
+const store = configureStore({
+  reducer: { posts },
+});
+
+root.render(
   <Provider store={store}>
     <App />
-  </Provider>,
-  document.getElementById('root'),
+  </Provider>
 );
