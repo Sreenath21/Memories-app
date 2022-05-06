@@ -10,8 +10,6 @@ const Posts = ({ setCurrentId }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
 
-  // console.log(posts);
-
   return !posts.length ? (
     <CircularProgress />
   ) : (
