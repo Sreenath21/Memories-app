@@ -28,6 +28,7 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import posts from "./reducers/posts";
+import auth from "./reducers/auth";
 import App from "./App";
 import "./index.css";
 
@@ -35,7 +36,7 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 
 const store = configureStore({
-  reducer: { posts },
+  reducer: { posts, auth },
 });
 
 root.render(
